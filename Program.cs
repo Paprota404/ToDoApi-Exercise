@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -16,8 +15,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-
 
 app.Run();
 
