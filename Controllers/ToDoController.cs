@@ -2,7 +2,7 @@ using ToDoApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-//Rzeszów
+
 [Route("api/[controller]")]
 [ApiController]
 public class ToDoController : ControllerBase
@@ -21,12 +21,12 @@ public class ToDoController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ToDoITem>>> GetToDoItems()
+    public async Task<ActionResult<IEnumerable<ToDoItem>>> GetToDoItems()
     {
         return await _context.ToDoItems.ToListAsync();
     }
 
-    [HttpGet]
+    [HttpGet("{id}")]
     public async Task<ActionResult<ToDoItem>> GetToDoItem(long id)
     {
         var ToDoItem = await _context.ToDoItems.FindAsync(id);
@@ -35,5 +35,11 @@ public class ToDoController : ControllerBase
     }
 
     [HttpPost]
-    public async 
+    public async Task<IActionResult> PostToDoItem(ToDoItem todoitem)
+    {
+        _context.ToDoItems.Add(todoitem);
+        await _context.SaveChangesAsync();
+
+        return Ok(todoitem);
+    }
 }
