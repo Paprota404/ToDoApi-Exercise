@@ -42,7 +42,6 @@ public class ToDoController : ControllerBase
 
         return Ok(todoitem);
     }
-    //LC
-    //LC
-    //LC and Cores
+    
+    
 }
