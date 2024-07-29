@@ -25,7 +25,7 @@ public class ToDoController : ControllerBase
     {
         return await _context.ToDoItems.ToListAsync();
     }
-
+    //Theory
     [HttpGet("{id}")]
     public async Task<ActionResult<ToDoItem>> GetToDoItem(long id)
     {
