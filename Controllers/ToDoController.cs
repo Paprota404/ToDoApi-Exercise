@@ -12,14 +12,16 @@ namespace ToDoApi.Controllers
         private readonly ToDoContext _context;
 
         private readonly ILogger<ToDoController> _logger;
-        public ToDoController(ILogger<ToDoController> logger, ToDoContext context)
+       public ToDoController(ILogger<ToDoController> logger, ToDoContext context)
         {
             _context = context;
             _logger = logger;
-            InitializeToDoItems();
+
+            // Call the asynchronous initialization method
+            InitializeAsync().ConfigureAwait(false);
         }
 
-        private async Task InitializeToDoItems()
+        private async Task InitializeAsync()
         {
             try
             {
@@ -39,8 +41,9 @@ namespace ToDoApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ToDoItem>>> GetToDoItems()
         {
-            return await _context.ToDoItems.ToListAsync();
+            return await _context.ToDoItems.AsNoTracking().ToListAsync();
         }
+
         //Theory
         [HttpGet("{id}")]
         public async Task<ActionResult<ToDoItem>> GetToDoItem(long id)
@@ -52,14 +55,13 @@ namespace ToDoApi.Controllers
 
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> PostToDoItem(ToDoItem todoitem)
         {
-
             if (todoitem == null || !ModelState.IsValid)
             {
                 return BadRequest("Invalid todo item data.");
             }
+
             try
             {
                 await _context.ToDoItems.AddAsync(todoitem);
@@ -80,7 +82,7 @@ namespace ToDoApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditToDoItem(long id, ToDoItem todoitem)
+        public async Task<ActionResult<ToDoItem>> EditToDoItem(long id, ToDoItem todoitem)
         {
             if (!ModelState.IsValid)
             {
@@ -92,7 +94,6 @@ namespace ToDoApi.Controllers
             if (item != null)
             {
                 item.Name = todoitem.Name;
-                _context.Entry(item).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
                 return Ok(item);
             }
@@ -109,7 +110,7 @@ namespace ToDoApi.Controllers
 
             if (item != null)
             {
-                await _context.ToDoItems.RemoveAsync(item);
+                _context.ToDoItems.Remove(item);
                 await _context.SaveChangesAsync();
                 return Ok(new { message = $"ToDoItem with {id} has been deleted" });
             }
