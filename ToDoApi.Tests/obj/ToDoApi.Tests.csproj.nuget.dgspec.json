@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\C# Projects\\TodoApi\\TodoApi\\TodoApi.csproj": {}
+    "H:\\C# Projects\\TodoApi\\TodoApi\\ToDoApi.Tests\\ToDoApi.Tests.csproj": {}
   },
   "projects": {
-    "H:\\C# Projects\\TodoApi\\TodoApi\\TodoApi.csproj": {
+    "H:\\C# Projects\\TodoApi\\TodoApi\\ToDoApi.Tests\\ToDoApi.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\C# Projects\\TodoApi\\TodoApi\\TodoApi.csproj",
-        "projectName": "TodoApi",
-        "projectPath": "H:\\C# Projects\\TodoApi\\TodoApi\\TodoApi.csproj",
+        "projectUniqueName": "H:\\C# Projects\\TodoApi\\TodoApi\\ToDoApi.Tests\\ToDoApi.Tests.csproj",
+        "projectName": "ToDoApi.Tests",
+        "projectPath": "H:\\C# Projects\\TodoApi\\TodoApi\\ToDoApi.Tests\\ToDoApi.Tests.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "H:\\C# Projects\\TodoApi\\TodoApi\\obj\\",
+        "outputPath": "H:\\C# Projects\\TodoApi\\TodoApi\\ToDoApi.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,33 +46,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[17.8.0, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "coverlet.collector": {
               "target": "Package",
-              "version": "[8.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[8.0.7, )"
-            },
-            "NSubstitute": {
-              "target": "Package",
-              "version": "[5.1.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.0.0, )"
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.9.0, )"
+              "version": "[2.5.3, )"
             },
             "xunit.runner.visualstudio": {
               "target": "Package",
-              "version": "[2.8.2, )"
+              "version": "[2.5.3, )"
             }
           },
           "imports": [
@@ -87,9 +75,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -12,7 +12,7 @@ namespace ToDoApi.Controllers
         private readonly ToDoContext _context;
 
         private readonly ILogger<ToDoController> _logger;
-       public ToDoController(ILogger<ToDoController> logger, ToDoContext context)
+        public ToDoController(ILogger<ToDoController> logger, ToDoContext context)
         {
             _context = context;
             _logger = logger;
