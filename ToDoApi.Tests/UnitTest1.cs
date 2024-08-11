@@ -10,11 +10,11 @@ namespace ToDoApi.Tests;
 
 public class ToDoTests
 {
-    private readonly ILogger<ToDoTests> _logger;
+    private readonly ILogger<ToDoController> _logger;
     private readonly ToDoContext _context;
     private readonly ToDoController _controller;
 
-    public ToDoControllerTests()
+    public ToDoTests()
     {
         _context = Substitute.For<ToDoContext>();
         _logger = Substitute.For<ILogger<ToDoController>>();
@@ -25,25 +25,26 @@ public class ToDoTests
     public async Task GetToDoItems_ReturnsOkResult_WithListOfToDoItems()
     {
         //Arrange
-        var ToDoItems = new List<ToDoItem>
+        var toDoItems = new List<ToDoItem>
         {
             new ToDoItem { Id = 1, Name = "Test Item 1 ", isComplete = false},
             new ToDoItem { Id = 2, Name = "Test Item 2" , isComplete = false},
         };
 
-        var DbSetMock = Substitute.For<DbSet<ToDoItem>, IQueryable<ToDoItems>>();
+        var dbSetMock = Substitute.For<DbSet<ToDoItem>, IQueryable<ToDoItem>>();
         ((IQueryable<ToDoItem>)dbSetMock).Provider.Returns(toDoItems.AsQueryable().Provider);
         ((IQueryable<ToDoItem>)dbSetMock).Expression.Returns(toDoItems.AsQueryable().Expression);
         ((IQueryable<ToDoItem>)dbSetMock).ElementType.Returns(toDoItems.AsQueryable().ElementType);
         ((IQueryable<ToDoItem>)dbSetMock).GetEnumerator().Returns(toDoItems.GetEnumerator());
-        _context.ToDoItems.Returns(DbSetMock);
+
+        _context.ToDoItems.Returns(dbSetMock);
 
         //Act
         var result = await _controller.GetToDoItems();
 
         //Assert
         var okResult = Assert.IsType<ActionResult<IEnumerable<ToDoItem>>>(result);
-        var returnValue = Assert.IsType<List<ToDoItems>(okResult.Value);
+        var returnValue = Assert.IsType<List<ToDoItem>>(okResult.Value);
         Assert.Equal(2, returnValue.Count);
     }
 }
