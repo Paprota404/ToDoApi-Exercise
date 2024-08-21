@@ -1,0 +1,8 @@
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.csproj.AssemblyReference.cache
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.AssemblyInfoInputs.cache
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.AssemblyInfo.cs
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.csproj.CoreCompileInputs.cache
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\papro\Coding\Learning C#\ToDoApi-Exercise\obj\Debug\net8.0\TodoApi.sourcelink.json
