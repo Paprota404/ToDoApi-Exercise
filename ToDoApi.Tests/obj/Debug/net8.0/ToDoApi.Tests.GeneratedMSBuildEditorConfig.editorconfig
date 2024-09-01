@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ToDoApi.Tests
-build_property.ProjectDir = H:\C# Projects\TodoApi\TodoApi\ToDoApi.Tests\
+build_property.ProjectDir = C:\Users\papro\Coding\ToDoApi\ToDoApi-Exercise\ToDoApi.Tests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
